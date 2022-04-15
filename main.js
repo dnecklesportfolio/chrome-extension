@@ -1,30 +1,26 @@
-// const contents = document.getElementById('contents');
-// //capture parent in a variable
-// const parent = contents.parentNode
-// //now delete contents
-// contents.parentNode.removeChild(contents);
+//PSEUDO CODE
+//intervals of 10 minutes - max time two hours
+            //onclick event invokes our countdown function
+        //countdown function that runs every time interval specified by the user
+        //once time is up, pop up window appears where user inputs water intake
 
-// //get background image and attach to parent
-// const img = document.createElement('img');
-// img.src = 'https://www.roadaffair.com/wp-content/uploads/2020/12/thi-lo-su-waterfall-thailand-shutterstock_1556344196.jpg';
-// parent.prepend(img);
+//water input
+ //ask the user how much water oz they want to drink?
+    //needs to be wrapped in a form
+    //change the icon when user drinks (3 phases)
+    //store and reassign the user input everytime they enter the amount
+    //if they've reached 64oz, they get a fun gif
 
-//need a function that will capture current date
-    // let today = new Date();
-    // let date = `${today.getMonth()+1}.${today.getDate()}.${today.getFullYear()}`
-    // const dateEl = document.createElement('div');
-    // dateEl.innerText = date;
-    // parent.appendChild(dateEl)
 
-    //Good Habits
-    //Pop-up input that asks user for how often user wants to be reminded to drink water
+//Pop-up input that asks user for how often user wants to be reminded to drink water
     let button = document.querySelector("button")
     let select = document.querySelector("select")
     let startTime;
     let time;
     let goal;
+    let userOz = 0;
    
-   //add event listener to button
+//add event listener to button
     button.addEventListener('click', function () {
         time = document.querySelector("select").value;
         time = Number(time);
@@ -37,7 +33,7 @@
         //console.log('start is' , startTime);
     })
     
-    //countdown function
+//countdown function
     const coundown = setInterval((function(){
         if (startTime) {
             //grab current time
@@ -46,7 +42,7 @@
             //compare with startTime from onlick
             const diff = curr - startTime;
             console.log(diff)
-            if (diff > time * 60 * 1000) {
+            if (diff > .1 * 60 * 1000) {
                 getValue()
                 //give user an option if they want to continue to receive reminders
                 startTime = new Date().getTime();
@@ -54,27 +50,30 @@
         }
     }), 1000)
 
-    //popup function
+//popup function
     function getValue() {
-        var retVal = prompt("Enter your name : ", "your name here");
-        console.log(retVal);
+        var retVal = prompt("Time to take a sip! Make sure to enter how much water you drank: ", "in oz please :)");
+        userOz += Number(retVal)
+        //if the user reaches their total goal, call celebratory function
+        if(userOz >= goal){
+            yayHydration()
+        }
      }
+     //reach goal function, pops up image of cute pug
+    function yayHydration(){
+        alert(`Nice job! You drank ${goal} oz today. Keep chugging away!`)
+        var congrats = document.createElement('iframe');
+        congrats.src="https://giphy.com/embed/da5BxvjlRRP9soY36k" 
+        congrats.width="480" 
+        congrats.height="480" 
+        congrats.class="giphy-embed"
+        document.body.appendChild(congrats);
+        clearInterval(coundown)
+    }
 
      //FRIDAY GOALS
      //prompt message and manifestJSON link to be a proper extension
      //sty;ing
 
-    //intervals of 10 minutes - max time two hours
-            //onclick event invokes our countdown function
-        //countdown function that runs every time interval specified by the user
-        //once time is up, pop up window appears where user inputs water intake
 
-    //water input
-    //ask the user how much water they want to drink?
-    //needs to wrapped be wrapped in a form
-        //asks user how many oz of water they drank
-            //change the icon when user drinks (3 phases)
-            //store and reassign the user input everytime they enter the amount
-            //if they've reached 64oz, they get a fun video?
-//ACTUAL CODE
 

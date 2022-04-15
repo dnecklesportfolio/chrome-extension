@@ -1,17 +1,17 @@
 {
     "manifest_version": 3,
-    "name": "Focus",
-    "browser_action": {
-        "default_icon" :{
-            
-        }
+    "name": "Stay Hydrated",
+    "version": "1.0.0",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Drink Your Water"
     },
-    "version": "1.0",
-    "description" : "a little help to stay motivated",
+    "description" : "Making sure you're drinking at least 64oz a day",
     "content_scripts": [
         {
-            "matches": ["*://*.youtube.com/*"],
-            "js": ["./main.js"]
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["./main.js"],
+            "css": ["style.css"]
         }
     ]
 }
