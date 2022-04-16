@@ -17,7 +17,7 @@
 //Pop-up input that asks user for how often user wants to be reminded to drink water
     let button = document.querySelector("button")
     let select = document.querySelector("select")
-    let startTime = 10
+    let startTime = 999999999999999999999
     let time;
     let goal;
     let userOz = 0;
@@ -28,8 +28,6 @@
         time = Number(time);
         goal = document.querySelector('#goal').value;
         goal = Number(goal);
-        console.log(goal);
-        console.log(time);
         //grab the starting time for countdown in milliseconds
         startTime = new Date().getTime();
         //console.log('start is' , startTime);
@@ -44,10 +42,9 @@
         if (startTime) {
             //grab current time
             const curr = new Date().getTime();
-            //console.log(curr);
             //compare with startTime from onlick
             const diff = curr - startTime;
-            if (diff > .1 * 60 * 1000) {
+            if (diff > time * 60 * 1000) {
                 getValue()
                 //give user an option if they want to continue to receive reminders
                 startTime = new Date().getTime();
@@ -72,16 +69,13 @@
         alert(`Nice job! You drank ${goal} oz today. Keep chugging away!`)
         var congrats = document.createElement('iframe');
         congrats.src="https://giphy.com/embed/da5BxvjlRRP9soY36k" 
-        congrats.width="480" 
-        congrats.height="480" 
+        congrats.width="100%" 
+        congrats.height="200%" 
         congrats.class="giphy-embed"
+
         document.body.appendChild(congrats);
         clearInterval(coundown)
     }
-
-     //FRIDAY GOALS
-     //prompt message and manifestJSON link to be a proper extension
-     //sty;ing
 
 
 

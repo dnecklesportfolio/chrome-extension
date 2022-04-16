@@ -7,10 +7,10 @@
         "default_title": "Drink Your Water"
     },
     "icons": {
-        "16": "water-icon.png"
+        "16": "water-drop.png"
     },
     "background":{
-        "page":"background.html",
+        "service_worker":"background.html",
         "persistence": false
     },
     "description" : "Making sure you're drinking at least 64oz a day",
