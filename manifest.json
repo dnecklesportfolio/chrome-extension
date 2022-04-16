@@ -6,6 +6,9 @@
         "default_popup": "index.html",
         "default_title": "Drink Your Water"
     },
+    "icons": {
+        "16": "water-icon.png"
+    },
     "description" : "Making sure you're drinking at least 64oz a day",
     "content_scripts": [
         {

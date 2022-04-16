@@ -11,7 +11,7 @@
     //store and reassign the user input everytime they enter the amount
     //if they've reached 64oz, they get a fun gif
 
-
+//MAJOR ISSUE: THE COUNTDOWN FUNCTION STOPS WHEN THE USER SWITCHES TABS
 //Pop-up input that asks user for how often user wants to be reminded to drink water
     let button = document.querySelector("button")
     let select = document.querySelector("select")
@@ -59,7 +59,7 @@
             yayHydration()
         }
      }
-     //reach goal function, pops up image of cute pug
+     //celebratory function, pops up image of cute pug chugging h20
     function yayHydration(){
         alert(`Nice job! You drank ${goal} oz today. Keep chugging away!`)
         var congrats = document.createElement('iframe');
