@@ -9,11 +9,15 @@
     "icons": {
         "16": "water-icon.png"
     },
+    "background":{
+        "page":"background.html",
+        "persistence": false
+    },
     "description" : "Making sure you're drinking at least 64oz a day",
     "content_scripts": [
         {
             "matches": ["http://*/*", "https://*/*"],
-            "js": ["./main.js"],
+            "js": ["main.js"],
             "css": ["style.css"]
         }
     ]
